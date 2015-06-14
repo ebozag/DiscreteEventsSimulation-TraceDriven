@@ -1,12 +1,12 @@
 
 public class Repairman implements EventHandler {
 
-	double MTTR;
-	double MTTRvariance;
+//	double MTTR;
+//	double MTTRvariance;
 	
 	public Repairman() {
-		MTTR = 10.0;
-		MTTRvariance = 2.0;
+//		MTTR = 10.0;
+//		MTTRvariance = 2.0;
 	}
 	
 	
