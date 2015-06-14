@@ -1,12 +1,12 @@
 
 public class Machine implements EventHandler {
-	private double MTTF;
-	private double MTTFvariance;
+//	private double MTTF;
+//	private double MTTFvariance;
 	public boolean working;
 	
 	public Machine() {
-		MTTF = 30.0;
-		MTTFvariance = 5.0;
+//		MTTF = 30.0;
+//		MTTFvariance = 5.0;
 		working = true;
 	}
 	
