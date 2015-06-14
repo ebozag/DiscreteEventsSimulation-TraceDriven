@@ -1,5 +1,6 @@
+import java.io.*;
 import java.util.Random;
-
+import java.util.LinkedList;
 
 public class Simulation {
 	public Random generator = new Random(); // random number generator
@@ -10,10 +11,30 @@ public class Simulation {
 	public Repairman r = new Repairman();
 	public User u = new User();
 	
-	public Simulation() {
+	//Added 2 LinkedLists to keep the data from trace file
+	public LinkedList<Double> traceMachineNextFail = new LinkedList<Double>();
+	public LinkedList<Double> traceRepairTime = new LinkedList<Double>();
+	
+	public Simulation(String filename) {
 		generator = new Random();
 		h = new EventHeap(10000);
 		now = 0;
+
+		// Load data from trace file into the LinkedLists
+		try{
+			FileReader inputTraceFile = new FileReader(filename);
+			BufferedReader bufferReader = new BufferedReader(inputTraceFile);
+			String pairedValues;
+			while ((pairedValues = bufferReader.readLine()) != null)   {
+				String[] values = pairedValues.split(",");
+				traceMachineNextFail.add(Double.parseDouble(values[0]));
+				traceRepairTime.add(Double.parseDouble(values[1]));
+			}		
+			bufferReader.close();
+		}catch(Exception e){
+			System.out.println("Error:" + e.getMessage());
+		}
+
 	}
 
 	public void scheduleEvent(Event e) {
@@ -36,7 +57,7 @@ public class Simulation {
 	}
 	
 	public void run(double maxTime) {
-		while (!h.isEmpty() && h.peek().getTime()<=maxTime) {
+		while (!traceMachineNextFail.isEmpty() && !traceRepairTime.isEmpty() && !h.isEmpty() && h.peek().getTime()<=maxTime) {
 			Event nextEvent = h.remove();
 			now = nextEvent.getTime();
 			nextEvent.getHandler().respondToEvent(nextEvent, this);

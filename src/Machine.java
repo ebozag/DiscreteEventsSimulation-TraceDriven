@@ -15,7 +15,8 @@ public class Machine implements EventHandler {
 		if (e.getType()==s.working) {
 			System.out.println(e.getTime()+" machine working");
 			working=true;
-			double timeToNextFailure = Math.abs(s.generator.nextGaussian()*MTTFvariance+MTTF);
+			//double timeToNextFailure = Math.abs(s.generator.nextGaussian()*MTTFvariance+MTTF);
+			double timeToNextFailure = s.traceMachineNextFail.removeFirst();
 			e.setTime(s.now+timeToNextFailure);
 			e.setType(s.failure);
 			s.scheduleEvent(e);
