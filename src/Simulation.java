@@ -1,9 +1,9 @@
 import java.io.*;
-import java.util.Random;
+//import java.util.Random;
 import java.util.LinkedList;
 
 public class Simulation {
-	public Random generator = new Random(); // random number generator
+//	public Random generator = new Random(); // random number generator
 	public EventHeap h;
 	double now;
 	
@@ -16,7 +16,7 @@ public class Simulation {
 	public LinkedList<Double> traceRepairTime = new LinkedList<Double>();
 	
 	public Simulation(String filename) {
-		generator = new Random();
+//		generator = new Random();
 		h = new EventHeap(10000);
 		now = 0;
 
