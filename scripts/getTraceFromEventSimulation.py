@@ -4,8 +4,9 @@ import re
 from decimal import *
 
 '''
-   This script will receive the output from the "DiscreteEventSimulation" program
-   via the stdin, and calculate the average downtime for a machine.
+   This script will receive the output from the original "DiscreteEventSimulation" program
+   via the stdin, and generate a trace input for the new "DiscreteEventSimulation-TraceDriven"
+   program.
    
    @author: Edwin Boza
    @fecha: 13/06/2015
