@@ -16,7 +16,7 @@ Amherst - http://www.ecs.umass.edu/ece242/.
 We have modified the code to change the original stochastic simulation into a trace-driven
 approach.  
 
-We also have included some Python scripts as an example on how to use shell scriting to process
+We also have included some Python scripts as an example on how to use shell scripting to process
 the results from the simulation program.
 
 The folder structure of the project is:
